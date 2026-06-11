@@ -143,6 +143,7 @@
             background-color: #1a1a1a;
         }
 
+        /* ========== SOCIAL LINKS SIDEBAR (DESKTOP) - ENHANCED ========== */
         .social-links-side {
             text-align: center;
             margin-top: auto;
@@ -152,34 +153,40 @@
         .social-links-side h4 {
             color: #ffffff80;
             font-size: 0.8rem;
-            margin-bottom: 15px;
-            letter-spacing: 2px;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+            font-weight: 400;
         }
 
         .social-icons-side {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 18px;
             flex-wrap: wrap;
         }
 
         .social-icons-side a {
             color: #ffffff;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             transition: all 0.3s ease;
-            width: 35px;
-            height: 35px;
+            width: 42px;
+            height: 42px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            background: rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255,255,255,0.15);
+            text-decoration: none;
         }
 
         .social-icons-side a:hover {
             color: #e6b422;
-            background: rgba(230,180,34,0.2);
-            transform: translateY(-3px);
+            background: rgba(230,180,34,0.15);
+            border-color: #e6b422;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(230,180,34,0.2);
         }
 
         .mobile-menu-btn {
@@ -306,18 +313,34 @@
             border-color: #e6b422;
         }
 
+        /* ========== MOBILE SOCIAL SECTION (UNDER HERO) - ENHANCED ========== */
         .mobile-social-section {
             display: none;
             text-align: center;
-            padding: 50px 20px;
-            background: #1a1a1a;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
             color: white;
         }
 
         .mobile-social-section h3 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
+            font-size: 1.6rem;
+            margin-bottom: 30px;
             font-weight: 600;
+            letter-spacing: 2px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .mobile-social-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: #e6b422;
+            border-radius: 2px;
         }
 
         .mobile-social-icons {
@@ -330,20 +353,25 @@
         .mobile-social-icons a {
             color: white;
             font-size: 1.8rem;
-            transition: all 0.3s ease;
-            width: 55px;
-            height: 55px;
+            transition: all 0.4s ease;
+            width: 65px;
+            height: 65px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            background: rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255,255,255,0.2);
+            text-decoration: none;
         }
 
         .mobile-social-icons a:hover {
             color: #e6b422;
             background: rgba(230,180,34,0.2);
-            transform: translateY(-3px);
+            border-color: #e6b422;
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 12px 25px rgba(230,180,34,0.25);
         }
 
         .section {
@@ -696,8 +724,9 @@
             </div>
         </section>
 
+        <!-- أيقونات التواصل الاجتماعي للهواتف - مطورة وفخمة -->
         <div class="mobile-social-section">
-            <h3>Suivez-moi</h3>
+            <h3>SUIVEZ-MOI</h3>
             <div class="mobile-social-icons">
                 <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
                 <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
