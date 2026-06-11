@@ -132,6 +132,13 @@
         .sidebar-ref-item.wide img {
             height: 100px;
         }
+        /* صورة 4 أضعاف في السايدبار (بحجم عرض كامل) */
+        .sidebar-ref-item.super-wide {
+            grid-column: span 2;
+        }
+        .sidebar-ref-item.super-wide img {
+            height: 160px;
+        }
 
         .social-links-side {
             text-align: center;
@@ -524,6 +531,13 @@
         .ref-item.wide img {
             height: 300px;
         }
+        /* صورة 4 أضعاف في الصفحة الرئيسية (بحجم عرض كامل) */
+        .ref-item.super-wide {
+            grid-column: span 2;
+        }
+        .ref-item.super-wide img {
+            height: 400px;
+        }
         @media (max-width: 768px) {
             .ref-item img {
                 height: 180px;
@@ -531,8 +545,8 @@
             .ref-item.wide img {
                 height: 200px;
             }
-            .ref-grid {
-                gap: 12px;
+            .ref-item.super-wide img {
+                height: 220px;
             }
         }
 
@@ -627,7 +641,7 @@
             </ul>
             <!-- SECTION RÉFÉRENCE DANS LA BARRE LATÉRALE (SOUS CONTACT) -->
             <div class="sidebar-reference">
-                <h4> RÉFÉRENCE</h4>
+                <h4>RÉFÉRENCE</h4>
                 <div class="sidebar-ref-grid">
                     <div class="sidebar-ref-item"><img src="https://b.top4top.io/p_3814b6rcm1.jpg" alt="ref1"></div>
                     <div class="sidebar-ref-item"><img src="https://c.top4top.io/p_38144se392.jpg" alt="ref2"></div>
@@ -636,6 +650,8 @@
                     <div class="sidebar-ref-item"><img src="https://f.top4top.io/p_3814bsjgd5.jpg" alt="ref5"></div>
                     <div class="sidebar-ref-item"><img src="https://g.top4top.io/p_38141flok6.jpg" alt="ref6"></div>
                     <div class="sidebar-ref-item wide"><img src="https://h.top4top.io/p_3814siazc7.jpg" alt="ref7"></div>
+                    <!-- الصورة الجديدة (بحجم 4 صور) في السايدبار -->
+                    <div class="sidebar-ref-item super-wide"><img src="https://e.top4top.io/p_38147jamf1.jpg" alt="ref8 large"></div>
                 </div>
             </div>
         </div>
@@ -749,7 +765,6 @@
             <div class="container-custom">
                 <div style="text-align: center;">
                     <h2 class="section-title">Référence</h2>
-                    <p style="margin-top: 15px; color: #4a4a4a;">Découvrez quelques-unes de nos réalisations</p>
                 </div>
                 <div class="ref-gallery">
                     <div class="ref-grid">
@@ -760,6 +775,8 @@
                         <div class="ref-item"><img src="https://f.top4top.io/p_3814bsjgd5.jpg" alt="Réf 5"></div>
                         <div class="ref-item"><img src="https://g.top4top.io/p_38141flok6.jpg" alt="Réf 6"></div>
                         <div class="ref-item wide"><img src="https://h.top4top.io/p_3814siazc7.jpg" alt="Réf 7 - Large"></div>
+                        <!-- الصورة الجديدة (بحجم 4 صور) في الصفحة الرئيسية -->
+                        <div class="ref-item super-wide"><img src="https://e.top4top.io/p_38147jamf1.jpg" alt="Réf 8 - Super Large"></div>
                     </div>
                 </div>
             </div>
