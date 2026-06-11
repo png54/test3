@@ -1,809 +1,835 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BERBÈRE | متجر الملابس الجزائري</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Playfair+Display:wght@700;900&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Sami SIYOUCEF | Consultant International | Expert TV & Médias</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root {
-            --ink: #0d0f1a;
-            --deep: #111422;
-            --surface: #181c30;
-            --card: #1e2338;
-            --gold: #c9963a;
-            --gold-lt: #e8b85a;
-            --sand: #e8d5a3;
-            --cream: #fdf6e3;
-            --border: rgba(201,150,58,0.18);
-            --text-main: #f0e8d0;
-            --text-muted: #9a8f7a;
-            --radius-sm: 8px;
-            --radius-md: 16px;
-            --radius-lg: 28px;
-            --radius-xl: 40px;
-            --font-ar: 'Cairo', sans-serif;
-            --font-display: 'Scheherazade New', serif;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        body { font-family: var(--font-ar); background: var(--ink); color: var(--text-main); line-height: 1.7; min-height: 100vh; }
-        body::before {
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #1a1a1a;
+            overflow-x: hidden;
+        }
+
+        /* ========== LEFT HEADER STYLE ========== */
+        #header-outer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100vh;
+            background-color: #000000;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 50px 30px;
+            transition: all 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .logo-area {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .logo-area img {
+            max-width: 260px;
+            width: 100%;
+            height: auto;
+        }
+
+        .nav-menu {
+            flex: 1;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .nav-menu ul li {
+            margin-bottom: 25px;
+        }
+
+        .nav-menu ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
+        }
+
+        .nav-menu ul li a::after {
             content: '';
-            position: fixed; inset: 0; z-index: 0;
-            background-image: radial-gradient(circle at 20% 20%, rgba(201,150,58,0.06) 0%, transparent 60%);
-            pointer-events: none;
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #e6b422;
+            transition: width 0.3s ease;
         }
-        header {
-            position: sticky; top: 0; z-index: 200;
-            background: rgba(13,15,26,0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
+
+        .nav-menu ul li a:hover::after {
+            width: 100%;
         }
-        .nav-wrap {
-            max-width: 1300px; margin: 0 auto; padding: 0 2rem;
-            height: 72px; display: flex; align-items: center;
-            justify-content: space-between; gap: 1rem;
+
+        .nav-menu ul li a:hover {
+            color: #e6b422;
         }
-        .logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
-        .logo-emblem { width: 46px; height: 46px; }
-        .logo-name { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 900; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; }
-        .logo-sub { font-size: 0.65rem; color: var(--text-muted); }
-        nav ul { list-style: none; display: flex; gap: 2rem; }
-        nav a { text-decoration: none; color: var(--text-muted); font-weight: 600; transition: color 0.2s; cursor: pointer; }
-        nav a:hover { color: var(--gold); }
-        .nav-buttons { display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap; }
-        .btn-nav {
-            background: transparent; border: 1px solid var(--border);
-            color: var(--text-main); padding: 0.5rem 1.2rem;
-            border-radius: var(--radius-xl); cursor: pointer;
-            font-family: var(--font-ar); font-weight: 600; transition: all 0.2s;
+
+        /* ========== SIDEBAR REFERENCE STYLE ========== */
+        .sidebar-reference {
+            margin-top: 40px;
+            margin-bottom: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.2);
         }
-        .btn-nav:hover { border-color: var(--gold); color: var(--gold); }
-        .btn-nav-primary { background: linear-gradient(135deg, var(--gold), var(--gold-lt)); color: var(--ink); border: none; }
-        .btn-nav-primary:hover { opacity: 0.9; }
-        .btn-admin { background: linear-gradient(135deg, #c0392b, #e74c3c); color: white; border: none; }
-        .btn-admin:hover { background: linear-gradient(135deg, #a93226, #c0392b); color: white; }
-        .user-greeting { color: var(--gold); font-weight: 600; font-size: 0.85rem; }
-        .hero {
-            position: relative; z-index: 1;
-            min-height: 60vh; display: flex;
-            align-items: center; justify-content: center;
-            text-align: center; padding: 4rem 2rem;
+        .sidebar-reference h4 {
+            color: #e6b422;
+            font-size: 1rem;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            text-align: center;
         }
-        .hero-bg {
-            position: absolute; inset: 0;
-            background-image: url('https://images.unsplash.com/photo-1523381294911-8d3cead13475?q=80&w=2070&auto=format');
-            background-size: cover; background-position: center;
-            filter: brightness(0.2); z-index: -1;
+        .sidebar-ref-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
         }
-        .hero h1 { font-family: var(--font-display); font-size: clamp(2.5rem, 6vw, 4.5rem); color: var(--cream); margin-bottom: 1rem; }
-        .hero h1 span { color: var(--gold); }
-        .hero-desc { color: var(--sand); margin-bottom: 2rem; }
-        .btn-primary, .btn-ghost {
-            display: inline-block; padding: 0.8rem 2rem;
-            border-radius: var(--radius-xl); text-decoration: none;
-            font-weight: 700; margin: 0.5rem; cursor: pointer;
-            font-family: var(--font-ar); border: none;
+        .sidebar-ref-item {
+            border-radius: 6px;
+            overflow: hidden;
         }
-        .btn-primary { background: linear-gradient(135deg, var(--gold), var(--gold-lt)); color: var(--ink); }
-        .btn-ghost { border: 1px solid var(--border); color: var(--sand); background: transparent; }
-        .section-wrap { position: relative; z-index: 1; max-width: 1300px; margin: 0 auto; padding: 4rem 2rem; }
-        .section-title { font-family: var(--font-display); font-size: 2rem; color: var(--cream); margin-bottom: 2rem; }
-        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.8rem; }
-        .product-card {
-            background: var(--card); border: 1px solid var(--border);
-            border-radius: var(--radius-lg); overflow: hidden; transition: transform 0.3s;
+        .sidebar-ref-item img {
+            width: 100%;
+            height: 80px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
         }
-        .product-card:hover { transform: translateY(-5px); border-color: var(--gold); }
-        .product-img-wrap { height: 280px; overflow: hidden; }
-        .product-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
-        .product-card:hover .product-img-wrap img { transform: scale(1.05); }
-        .product-body { padding: 1.5rem; }
-        .product-name { font-family: var(--font-display); font-size: 1.2rem; color: var(--cream); margin-bottom: 0.4rem; }
-        .product-desc { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.4rem; }
-        .product-price { font-size: 1.3rem; font-weight: 900; color: var(--gold); margin: 0.5rem 0; }
-        .order-btn {
-            background: linear-gradient(135deg, var(--gold), var(--gold-lt));
-            color: var(--ink); border: none; padding: 0.6rem 1.2rem;
-            border-radius: var(--radius-xl); font-weight: 700;
-            cursor: pointer; width: 100%; font-family: var(--font-ar);
-            font-size: 0.95rem; transition: opacity 0.2s;
+        .sidebar-ref-item img:hover {
+            transform: scale(1.05);
         }
-        .order-btn:hover { opacity: 0.9; }
-        .modal-backdrop {
-            display: none; position: fixed; inset: 0;
-            background: rgba(0,0,0,0.92); backdrop-filter: blur(8px);
-            z-index: 1000; align-items: center; justify-content: center; padding: 1rem;
+        .sidebar-ref-item.wide {
+            grid-column: span 2;
         }
-        .modal-backdrop.open { display: flex; }
-        .modal-box {
-            background: var(--deep); border: 1px solid var(--border);
-            border-radius: var(--radius-lg); width: 100%;
-            max-width: 500px; max-height: 90vh; overflow-y: auto; padding: 2rem;
+        .sidebar-ref-item.wide img {
+            height: 100px;
         }
-        .modal-header {
-            display: flex; justify-content: space-between; align-items: center;
-            margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border);
+
+        .social-links-side {
+            text-align: center;
+            margin-top: auto;
+            padding-top: 40px;
         }
-        .modal-title { font-family: var(--font-display); font-size: 1.5rem; color: var(--gold); }
-        .modal-close { background: none; border: none; color: var(--text-muted); font-size: 1.5rem; cursor: pointer; line-height: 1; }
-        .modal-close:hover { color: var(--text-main); }
-        .form-group { margin-bottom: 1.2rem; }
-        .form-group label { display: block; margin-bottom: 0.5rem; color: var(--text-muted); font-size: 0.85rem; }
-        .form-group input, .form-group select, .form-group textarea {
-            width: 100%; padding: 0.8rem;
-            background: var(--surface); border: 1px solid var(--border);
-            border-radius: var(--radius-sm); color: var(--text-main);
-            font-family: var(--font-ar); font-size: 0.95rem; transition: border-color 0.2s;
+
+        .social-links-side h4 {
+            color: #ffffff80;
+            font-size: 0.8rem;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
         }
-        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); outline: none; }
-        /* FIX: dropdown options background */
-        .form-group select option { background: var(--surface); color: var(--text-main); }
-        .form-group input[disabled], .form-group input[readonly] { opacity: 0.7; cursor: default; }
-        .submit-btn {
-            width: 100%; padding: 0.9rem;
-            background: linear-gradient(135deg, var(--gold), var(--gold-lt));
-            border: none; border-radius: var(--radius-xl);
-            font-weight: 700; cursor: pointer; margin-top: 1rem;
-            font-family: var(--font-ar); font-size: 1rem; color: var(--ink); transition: opacity 0.2s;
+
+        .social-icons-side {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
         }
-        .submit-btn:hover:not(:disabled) { opacity: 0.9; }
-        .submit-btn:disabled { opacity: 0.55; cursor: not-allowed; }
-        .switch-auth { text-align: center; margin-top: 1rem; color: var(--text-muted); font-size: 0.9rem; }
-        .switch-auth a { color: var(--gold); cursor: pointer; text-decoration: none; }
-        .switch-auth a:hover { text-decoration: underline; }
-        .dashboard-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
-        .stat-card { background: var(--card); padding: 1.5rem; border-radius: var(--radius-md); text-align: center; border: 1px solid var(--border); }
-        .stat-number { font-size: 2rem; font-weight: 900; color: var(--gold); word-break: break-all; }
-        .orders-list { margin-top: 1rem; max-height: 460px; overflow-y: auto; }
-        .order-item {
-            background: var(--surface); padding: 1rem 1.2rem;
-            border-radius: var(--radius-sm); margin-bottom: 0.8rem;
-            border: 1px solid var(--border); line-height: 1.9;
+
+        .social-icons-side a {
+            color: #ffffff;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            width: 35px;
+            height: 35px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
         }
-        /* Badge variants */
-        .badge {
-            display: inline-block; padding: 0.15rem 0.65rem;
-            border-radius: 20px; font-size: 0.72rem; font-weight: 700;
-            background: var(--gold); color: var(--ink);
+
+        .social-icons-side a:hover {
+            color: #e6b422;
+            background: rgba(230,180,34,0.2);
+            transform: translateY(-3px);
         }
-        .badge-new       { background: #3498db; color: #fff; }
-        .badge-progress  { background: #e67e22; color: #fff; }
-        .badge-shipped   { background: #27ae60; color: #fff; }
-        .badge-done      { background: #2ecc71; color: #000; }
-        .badge-cancelled { background: #e74c3c; color: #fff; }
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
-        .feature-item { background: var(--card); padding: 1.5rem; border-radius: var(--radius-md); text-align: center; border: 1px solid var(--border); font-size: 1rem; }
-        footer { background: var(--deep); text-align: center; padding: 2rem; border-top: 1px solid var(--border); color: var(--text-muted); }
-        footer .logo-name { margin-bottom: 0.5rem; }
-        .admin-tabs {
-            display: flex; gap: 0; margin-bottom: 2rem;
-            border-bottom: 1px solid var(--border); flex-wrap: wrap;
+
+        .mobile-menu-btn {
+            display: none;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1100;
+            background: #000000;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
-        .admin-tab {
-            background: transparent; border: none; border-bottom: 2px solid transparent;
-            color: var(--text-muted); padding: 0.65rem 1.4rem; cursor: pointer;
-            font-family: var(--font-ar); font-size: 1rem; transition: all 0.2s; margin-bottom: -1px;
+
+        /* ========== MAIN CONTENT ========== */
+        #main-content {
+            margin-left: 280px;
+            width: calc(100% - 280px);
         }
-        .admin-tab:hover { color: var(--gold-lt); }
-        .admin-tab.active { color: var(--gold); border-bottom-color: var(--gold); }
-        .loading { text-align: center; padding: 3rem 2rem; color: var(--gold); font-size: 1rem; }
-        /* FIX: small action buttons (were missing — caused invisible delete button) */
-        .btn-small {
-            background: transparent; border: 1px solid var(--border);
-            color: var(--text-muted); padding: 0.25rem 0.75rem;
-            border-radius: var(--radius-xl); cursor: pointer;
-            font-family: var(--font-ar); font-size: 0.78rem; transition: all 0.2s;
+
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            min-height: 700px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
         }
-        .btn-small.btn-danger { border-color: rgba(231,76,60,0.5); color: #e74c3c; }
-        .btn-small.btn-danger:hover { background: #c0392b; border-color: #c0392b; color: #fff; }
+
+        .slider-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            color: white;
+            letter-spacing: -1px;
+        }
+
+        .hero-title {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #e6b422;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .hero-contact {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .contact-btn {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 12px 28px;
+            border-radius: 50px;
+            color: white;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .contact-btn:hover {
+            background: #e6b422;
+            color: #000;
+            transform: translateY(-3px);
+            border-color: #e6b422;
+        }
+
+        .mobile-social-section {
+            display: none;
+            text-align: center;
+            padding: 50px 20px;
+            background: #1a1a1a;
+            color: white;
+        }
+
+        .mobile-social-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .mobile-social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .mobile-social-icons a {
+            color: white;
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+            width: 55px;
+            height: 55px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .mobile-social-icons a:hover {
+            color: #e6b422;
+            background: rgba(230,180,34,0.2);
+            transform: translateY(-3px);
+        }
+
+        .section {
+            padding: 80px 60px;
+        }
+
+        .section-dark {
+            background-color: #f8f9fa;
+        }
+
+        .section-white {
+            background-color: #ffffff;
+        }
+
+        .container-custom {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: #e6b422;
+            border-radius: 2px;
+        }
+
+        .about-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .about-text {
+            flex: 2;
+        }
+
+        .about-text p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #4a4a4a;
+            margin-bottom: 15px;
+        }
+
+        .expertise-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .expertise-tags span {
+            background: #e6b42220;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-weight: 600;
+            color: #1a1a1a;
+            font-size: 0.85rem;
+        }
+
+        /* SERVICES GRID - Desktop: 2 colonnes (2x2), Mobile: 1 colonne */
+        .services-grid {
+            display: grid;
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        /* Pour les écrans larges (ordinateur) : 2 colonnes */
+        @media (min-width: 993px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 900px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        /* Pour les tablettes et mobiles : 1 colonne */
+        @media (max-width: 992px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            text-align: center;
+            border: 1px solid #eee;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-color: #e6b422;
+        }
+
+        .service-card i {
+            font-size: 3rem;
+            color: #e6b422;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .service-description {
+            text-align: center;
+            max-width: 900px;
+            margin: 30px auto 0;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #1a1a1a;
+            background: #e6b42210;
+            padding: 20px;
+            border-radius: 60px;
+        }
+
+        /* ========== REFERENCE GALLERY (PAGE PRINCIPALE) ========== */
+        .ref-gallery {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .ref-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .ref-item {
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            background: #f5f5f5;
+        }
+        .ref-item:hover {
+            transform: scale(1.02);
+        }
+        .ref-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+        .ref-item img:hover {
+            transform: scale(1.05);
+        }
+        .ref-item.wide {
+            grid-column: span 2;
+        }
+        .ref-item.wide img {
+            height: 300px;
+        }
         @media (max-width: 768px) {
-            .nav-wrap { padding: 0 1rem; }
-            nav ul { display: none; }
-            .modal-box { padding: 1.4rem; }
-            .admin-tab { padding: 0.5rem 0.9rem; font-size: 0.88rem; }
+            .ref-item img {
+                height: 180px;
+            }
+            .ref-item.wide img {
+                height: 200px;
+            }
+            .ref-grid {
+                gap: 12px;
+            }
+        }
+
+        .footer {
+            background: #0a0a0a;
+            color: #888;
+            text-align: center;
+            padding: 40px;
+            font-size: 0.9rem;
+        }
+        .footer p {
+            margin-bottom: 10px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 992px) {
+            #header-outer {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                width: 280px;
+            }
+            #header-outer.open {
+                transform: translateX(0);
+            }
+            .mobile-menu-btn {
+                display: flex;
+            }
+            #main-content {
+                margin-left: 0;
+                width: 100%;
+            }
+            .section {
+                padding: 50px 25px;
+            }
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            .hero-title {
+                font-size: 1rem;
+            }
+            .mobile-social-section {
+                display: block;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-grid {
+                flex-direction: column;
+                text-align: center;
+            }
+            .section-title::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .expertise-tags {
+                justify-content: center;
+            }
+            .service-description {
+                font-size: 1rem;
+                padding: 15px;
+            }
         }
     </style>
 </head>
 <body>
 
-<header>
-    <div class="nav-wrap">
-        <a href="#" class="logo">
-            <svg class="logo-emblem" viewBox="0 0 46 46" fill="none">
-                <polygon points="23,3 43,12 43,34 23,43 3,34 3,12" fill="none" stroke="#c9963a" stroke-width="1.2"/>
-                <text x="23" y="27" text-anchor="middle" font-family="Scheherazade New, serif" font-size="13" fill="#c9963a">ب</text>
-            </svg>
-            <div>
-                <div class="logo-name">BERBÈRE</div>
-                <div class="logo-sub">Algerian Wear</div>
-            </div>
-        </a>
-        <nav>
+    <div class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <div id="header-outer">
+        <div class="logo-area">
+            <img src="https://d.top4top.io/p_3813aq2ta1.jpg" alt="Sami SIYOUCEF Logo">
+        </div>
+        <div class="nav-menu">
             <ul>
-                <li><a onclick="scrollToSection('home')">الرئيسية</a></li>
-                <li><a onclick="scrollToSection('products')">المنتجات</a></li>
-                <li><a onclick="scrollToSection('features')">المميزات</a></li>
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#a-propos">À propos</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#reference">Référence</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
-        </nav>
-        <div class="nav-buttons" id="navButtons"></div>
-    </div>
-</header>
-
-<section class="hero" id="home">
-    <div class="hero-bg"></div>
-    <div class="hero-content">
-        <h1>أرقى <span>التيشيرتات</span><br>الجزائرية</h1>
-        <p class="hero-desc">قطن فاخر · تصميمات حصرية · شحن سريع</p>
-        <button onclick="scrollToSection('products')" class="btn-primary">اكتشف التشكيلة</button>
-        <button onclick="scrollToSection('features')" class="btn-ghost">لماذا نحن؟</button>
-    </div>
-</section>
-
-<div class="section-wrap" id="products">
-    <h2 class="section-title">✦ التشكيلة الأكثر طلباً</h2>
-    <div class="products-grid" id="productsGrid"></div>
-</div>
-
-<div class="section-wrap" id="features">
-    <h2 class="section-title">✦ لماذا تختار BERBÈRE؟</h2>
-    <div class="features-grid">
-        <div class="feature-item">🧵 قطن فاخر 100%</div>
-        <div class="feature-item">🎨 تصاميم حصرية</div>
-        <div class="feature-item">🚚 شحن لكل الولايات</div>
-        <div class="feature-item">🔄 استبدال مجاني</div>
-    </div>
-</div>
-
-<footer>
-    <div class="logo-name">BERBÈRE</div>
-    <p>© 2025 متجر BERBÈRE الجزائري</p>
-</footer>
-
-<!-- ═══════════════ Auth Modal ═══════════════ -->
-<div class="modal-backdrop" id="authModal">
-    <div class="modal-box">
-        <div class="modal-header">
-            <h3 class="modal-title" id="authTitle">تسجيل الدخول</h3>
-            <button class="modal-close" onclick="closeAuthModal()">✕</button>
-        </div>
-        <form id="authForm">
-            <div id="registerFields" style="display:none">
-                <div class="form-group">
-                    <label>الاسم الكامل *</label>
-                    <input type="text" id="fullName" placeholder="محمد بن علي">
-                </div>
-                <div class="form-group">
-                    <label>رقم الهاتف *</label>
-                    <input type="tel" id="phone" placeholder="0555 123 456">
+            <!-- SECTION RÉFÉRENCE DANS LA BARRE LATÉRALE (SOUS CONTACT) -->
+            <div class="sidebar-reference">
+                <h4>📷 RÉFÉRENCE</h4>
+                <div class="sidebar-ref-grid">
+                    <div class="sidebar-ref-item"><img src="https://b.top4top.io/p_3814b6rcm1.jpg" alt="ref1"></div>
+                    <div class="sidebar-ref-item"><img src="https://c.top4top.io/p_38144se392.jpg" alt="ref2"></div>
+                    <div class="sidebar-ref-item"><img src="https://d.top4top.io/p_3814g6j353.jpg" alt="ref3"></div>
+                    <div class="sidebar-ref-item"><img src="https://e.top4top.io/p_38145if064.jpg" alt="ref4"></div>
+                    <div class="sidebar-ref-item"><img src="https://f.top4top.io/p_3814bsjgd5.jpg" alt="ref5"></div>
+                    <div class="sidebar-ref-item"><img src="https://g.top4top.io/p_38141flok6.jpg" alt="ref6"></div>
+                    <div class="sidebar-ref-item wide"><img src="https://h.top4top.io/p_3814siazc7.jpg" alt="ref7"></div>
                 </div>
             </div>
-            <div class="form-group">
-                <label>البريد الإلكتروني *</label>
-                <input type="email" id="email" required placeholder="example@email.com">
+        </div>
+        <div class="social-links-side">
+            <h4>SUIVEZ-MOI</h4>
+            <div class="social-icons-side">
+                <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
             </div>
-            <div class="form-group">
-                <label>كلمة المرور *</label>
-                <input type="password" id="password" required placeholder="••••••••">
-            </div>
-            <button type="submit" class="submit-btn" id="authSubmitBtn">دخول</button>
-        </form>
-        <div class="switch-auth">
-            <span id="switchText">ليس لديك حساب؟</span>
-            <a onclick="toggleAuthMode()" id="switchLink">إنشاء حساب</a>
         </div>
     </div>
-</div>
 
-<!-- ═══════════════ Order Modal ═══════════════ -->
-<div class="modal-backdrop" id="orderModal">
-    <div class="modal-box">
-        <div class="modal-header">
-            <h3 class="modal-title">تأكيد الطلب</h3>
-            <button class="modal-close" onclick="closeOrderModal()">✕</button>
+    <div id="main-content">
+        <section class="hero-section" id="accueil">
+            <div class="slider-bg" id="sliderBg">
+                <div class="slide" style="background-image: url('https://e.top4top.io/p_3814d5ow11.jpg');"></div>
+                <div class="slide" style="background-image: url('https://g.top4top.io/p_3814ov2rn2.jpg');"></div>
+                <div class="slide" style="background-image: url('https://h.top4top.io/p_3814hkmzx3.jpg');"></div>
+                <div class="slide" style="background-image: url('https://i.top4top.io/p_3814h9v0n4.jpg');"></div>
+                <div class="slide" style="background-image: url('https://j.top4top.io/p_38141wwos5.jpg');"></div>
+                <div class="slide" style="background-image: url('https://k.top4top.io/p_3814dzy806.jpg');"></div>
+            </div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>Sami SIYOUCEF</h1>
+                <div class="hero-title">
+                    Consultant international en investissement & stratégie médias
+                </div>
+                <div class="hero-contact">
+                    <a href="mailto:siyoucef.s@gmail.com" class="contact-btn"><i class="fas fa-envelope"></i> siyoucef.s@gmail.com</a>
+                    <a href="https://wa.me/21693748457" target="_blank" class="contact-btn"><i class="fab fa-whatsapp"></i> 0021693748457</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="mobile-social-section">
+            <h3>Suivez-moi</h3>
+            <div class="mobile-social-icons">
+                <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
         </div>
-        <form id="orderForm">
-            <div class="form-group"><label>المنتج</label><input type="text" id="modalProductName" readonly disabled style="opacity:.75"></div>
-            <div class="form-group"><label>السعر</label><input type="text" id="modalProductPrice" readonly disabled style="opacity:.75"></div>
-            <div class="form-group">
-                <label>المقاس *</label>
-                <select id="orderSize" required>
-                    <option value="">اختر المقاس</option>
-                    <option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option>
-                </select>
+
+        <section class="section section-white" id="a-propos">
+            <div class="container-custom">
+                <div class="about-grid">
+                    <div class="about-image">
+                        <img src="https://l.top4top.io/p_381340yho1.jpg" alt="Sami SIYOUCEF">
+                    </div>
+                    <div class="about-text">
+                        <h2 class="section-title">À propos</h2>
+                        <p><strong>Sami SIYOUCEF</strong> est un consultant international en investissement et un expert en communication et management des médias, disposant de plus de 25 années d'expérience dans le journalisme, la direction éditoriale et la gestion de projets médiatiques à grande échelle.</p>
+                        <p>Il est membre du Conseil d'administration de la CGEA (Confédération Générale des Entreprises Algériennes), où il contribue à la réflexion stratégique sur le développement économique et l'investissement.</p>
+                        <p>Titulaire d'un MBA en investissement, il possède également une solide formation académique en communication et médias : Master II en communication et médias modernes, Master en gestion des grands médias, Licence en sciences de l'information et de la communication.</p>
+                        <p>Au cours de sa carrière, Sami SIYOUCEF a piloté et accompagné le lancement de <strong>sept projets de chaînes de télévision</strong> en Algérie et dans l'espace méditerranéen, mettant son expertise au service du développement des médias, de la stratégie de contenu, de la gouvernance et de l'innovation.</p>
+                        <p>Son parcours unique, à la croisée de l'investissement, de la communication et du management des médias, fait de lui un interlocuteur privilégié pour les entreprises, les investisseurs et les organisations souhaitant développer des projets à fort impact dans la région méditerranéenne.</p>
+                        <div class="expertise-tags">
+                            <span>Investissement international</span>
+                            <span>Communication & médias</span>
+                            <span>Management de projets TV</span>
+                            <span>Conseil stratégique</span>
+                            <span>Développement méditerranéen</span>
+                            <span>Lancement chaînes TV</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label>الولاية *</label>
-                <select id="orderWilaya" required>
-                    <option value="">اختر الولاية</option>
-                    <option>أدرار</option><option>الشلف</option><option>الأغواط</option><option>أم البواقي</option>
-                    <option>باتنة</option><option>بجاية</option><option>بسكرة</option><option>بشار</option>
-                    <option>البليدة</option><option>البويرة</option><option>تمنراست</option><option>تبسة</option>
-                    <option>تلمسان</option><option>تيارت</option><option>تيزي وزو</option><option>الجزائر</option>
-                    <option>الجلفة</option><option>جيجل</option><option>سطيف</option><option>سعيدة</option>
-                    <option>سكيكدة</option><option>سيدي بلعباس</option><option>عنابة</option><option>قالمة</option>
-                    <option>قسنطينة</option><option>المدية</option><option>مستغانم</option><option>المسيلة</option>
-                    <option>معسكر</option><option>ورقلة</option><option>وهران</option><option>البيض</option>
-                    <option>إليزي</option><option>برج بوعريريج</option><option>بومرداس</option><option>الطارف</option>
-                    <option>تندوف</option><option>تيسمسيلت</option><option>الوادي</option><option>خنشلة</option>
-                    <option>سوق أهراس</option><option>تيبازة</option><option>ميلة</option><option>عين الدفلى</option>
-                    <option>النعامة</option><option>عين تيموشنت</option><option>غرداية</option><option>غليزان</option>
-                </select>
+        </section>
+
+        <section class="section section-dark" id="services">
+            <div class="container-custom">
+                <div style="text-align: center;">
+                    <h2 class="section-title">Mes Services</h2>
+                    <div class="service-description">
+                        étude, conception, gestion et le lancement clés en main de projets TV et Grand Medias
+                    </div>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <i class="fas fa-tv"></i>
+                        <h3>Étude de projets TV</h3>
+                        <p>Analyse de faisabilité, étude de marché et audit stratégique pour les projets télévisuels et médiatiques.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-pen-ruler"></i>
+                        <h3>Conception</h3>
+                        <p>Création de concepts innovants, design de formats TV et développement de stratégies éditoriales.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-sliders-h"></i>
+                        <h3>Gestion</h3>
+                        <p>Coordination technique, budgétaire et humaine. Suivi de production et gestion des équipes médias.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-rocket"></i>
+                        <h3>Lancement clé en main</h3>
+                        <p>Déploiement complet, stratégie de lancement, promotion, diffusion et suivi post-lancement.</p>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label>العنوان التفصيلي *</label>
-                <textarea id="orderAddress" rows="2" required placeholder="الحي، الشارع، رقم البناية"></textarea>
+        </section>
+
+        <!-- ========== SECTION RÉFÉRENCE DANS LE CORPS DE LA PAGE ========== -->
+        <section class="section section-white" id="reference">
+            <div class="container-custom">
+                <div style="text-align: center;">
+                    <h2 class="section-title">Référence</h2>
+                    <p style="margin-top: 15px; color: #4a4a4a;">Découvrez quelques-unes de nos réalisations</p>
+                </div>
+                <div class="ref-gallery">
+                    <div class="ref-grid">
+                        <div class="ref-item"><img src="https://b.top4top.io/p_3814b6rcm1.jpg" alt="Réf 1"></div>
+                        <div class="ref-item"><img src="https://c.top4top.io/p_38144se392.jpg" alt="Réf 2"></div>
+                        <div class="ref-item"><img src="https://d.top4top.io/p_3814g6j353.jpg" alt="Réf 3"></div>
+                        <div class="ref-item"><img src="https://e.top4top.io/p_38145if064.jpg" alt="Réf 4"></div>
+                        <div class="ref-item"><img src="https://f.top4top.io/p_3814bsjgd5.jpg" alt="Réf 5"></div>
+                        <div class="ref-item"><img src="https://g.top4top.io/p_38141flok6.jpg" alt="Réf 6"></div>
+                        <div class="ref-item wide"><img src="https://h.top4top.io/p_3814siazc7.jpg" alt="Réf 7 - Large"></div>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label>ملاحظات إضافية</label>
-                <textarea id="orderNotes" rows="2" placeholder="أي طلبات خاصة..."></textarea>
-            </div>
-            <button type="submit" class="submit-btn">تأكيد الطلب</button>
-        </form>
+        </section>
+
+        <footer class="footer" id="contact">
+            <p>Sami SIYOUCEF</p>
+            <p>Consultant international en investissement</p>
+            <p>Expert en communication et management des médias</p>
+            <p>25 ans d'expérience au service de l'innovation, des entreprises et des médias</p>
+            <p style="margin-top: 20px;">&copy; 2026 Sami SIYOUCEF - Consultant International. Tous droits réservés.</p>
+        </footer>
     </div>
-</div>
 
-<!-- ═══════════════ User Dashboard Modal ═══════════════ -->
-<div class="modal-backdrop" id="userDashboardModal">
-    <div class="modal-box" style="max-width:700px">
-        <div class="modal-header">
-            <h3 class="modal-title">📊 حسابي</h3>
-            <button class="modal-close" onclick="closeUserDashboard()">✕</button>
-        </div>
-        <div id="userDashboardContent"></div>
-        <button class="submit-btn" onclick="logout()" style="background:#c0392b;margin-top:1.2rem">تسجيل خروج</button>
-    </div>
-</div>
-
-<!-- ═══════════════ Admin Dashboard Modal ═══════════════ -->
-<div class="modal-backdrop" id="adminModal">
-    <div class="modal-box" style="max-width:1100px">
-        <div class="modal-header">
-            <h3 class="modal-title">👑 لوحة تحكم المدير</h3>
-            <button class="modal-close" onclick="closeAdminModal()">✕</button>
-        </div>
-        <!-- FIX: Added data-tab attributes for reliable active-state management -->
-        <div class="admin-tabs">
-            <button class="admin-tab active" data-tab="orders" onclick="showAdminTab('orders')">📦 الطلبات</button>
-            <button class="admin-tab"         data-tab="users"  onclick="showAdminTab('users')">👥 المستخدمون</button>
-            <button class="admin-tab"         data-tab="stats"  onclick="showAdminTab('stats')">📊 الإحصائيات</button>
-        </div>
-        <div id="adminContent"></div>
-    </div>
-</div>
-
-<script>
-    // ══════════════════════════════════════════════════════════
-    //  ← ضع رابط Apps Script الخاص بك هنا ←
-    // ══════════════════════════════════════════════════════════
-    const GOOGLE_SHEET_API = "https://script.google.com/macros/s/AKfycbyd_gNKvKKIEe61xvDcpO2qYw8Q9nf6dxhnu56ZuT1Wiy_yxZX8pYA3pmSQtNT5EqPl6A/exec";
-
-    let currentUser    = null;
-    let authMode       = 'login';
-    let currentAdminTab = 'orders';
-
-    const ADMIN_EMAIL    = "admin@berbere.dz";
-    const ADMIN_PASSWORD = "admin123";
-
-    const products = [
-        { id:1, name:"تيشيرت كلاسيك",  price:"2500 دج", desc:"قطن فاخر، مقاسات S-XXL",    img:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500" },
-        { id:2, name:"تيشيرت رياضي",    price:"3200 دج", desc:"مريح للرياضة",               img:"https://images.unsplash.com/photo-1581655353564-df123f1f9b1a?w=500" },
-        { id:3, name:"هودي كلاسيك",     price:"4500 دج", desc:"هودي ثقيل للشتاء",           img:"https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=500" },
-        { id:4, name:"تيشيرت صيفي",     price:"1800 دج", desc:"قطن خفيف ومنعش",             img:"https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=500" },
-        { id:5, name:"تيشيرت رسمي",     price:"3900 دج", desc:"مناسب للمناسبات",             img:"https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=500" },
-        { id:6, name:"هودي بأكمام",     price:"5200 دج", desc:"تصميم عصري",                  img:"https://images.unsplash.com/photo-1509942774463-acf339cf87d5?w=500" }
-    ];
-
-    // ════════════════════════════════════════════════════════
-    //  Google Sheets API — الإصلاح الجوهري هنا
-    // ════════════════════════════════════════════════════════
-
-    /**
-     * حفظ طلب في Google Sheets
-     *
-     * المشكلة القديمة: كان Content-Type = 'application/json'
-     * هذا النوع غير مسموح به مع mode:'no-cors' (يُعدّ طلباً غير بسيط
-     * ويُحجب المتصفح أو يُحذف الهيدر قبل الإرسال، فلا يصل شيء).
-     *
-     * الإصلاح: 'text/plain' هو نوع "بسيط" مسموح به مع no-cors،
-     * ويصل كاملاً إلى e.postData.contents في Apps Script.
-     */
-    async function saveOrderToSheet(orderData) {
-        try {
-            await fetch(GOOGLE_SHEET_API, {
-                method:  'POST',
-                mode:    'no-cors',   // ضروري لـ Google Apps Script
-                headers: { 'Content-Type': 'text/plain;charset=utf-8' }, // ← الإصلاح
-                body:    JSON.stringify(orderData)
-            });
-            // مع no-cors الاستجابة opaque ولا يمكن قراءتها،
-            // لكن وصول الطلب بدون استثناء = نجاح
-            console.log('✅ Order sent:', orderData.productName);
-            return true;
-        } catch (err) {
-            console.error('❌ saveOrderToSheet:', err);
-            return false;
-        }
-    }
-
-    /**
-     * تحميل جميع الطلبات من Google Sheets
-     * GET requests تعمل بشكل طبيعي مع CORS في Apps Script
-     */
-    async function loadOrdersFromSheet() {
-        try {
-            const response = await fetch(GOOGLE_SHEET_API, {
-                method: 'GET',
-                cache:  'no-store'   // دائماً جلب بيانات حديثة
-            });
-            if (!response.ok) throw new Error('HTTP ' + response.status);
-            const data = await response.json();
-            const list = Array.isArray(data) ? data : (data.orders || []);
-            console.log('📦 Loaded', list.length, 'orders');
-            return list;
-        } catch (err) {
-            console.error('❌ loadOrdersFromSheet:', err);
-            return [];
-        }
-    }
-
-    // ════════════════════════════════════════════════════════
-    //  User Management
-    // ════════════════════════════════════════════════════════
-
-    function loadUsers() {
-        try { return JSON.parse(localStorage.getItem('berbere_users') || '[]'); }
-        catch { return []; }
-    }
-    function saveUsers(u) { localStorage.setItem('berbere_users', JSON.stringify(u)); }
-
-    function saveSession(user) {
-        localStorage.setItem('berbere_session', JSON.stringify(user));
-        currentUser = user;
-    }
-    function loadSession() {
-        try {
-            const s = localStorage.getItem('berbere_session');
-            if (s) currentUser = JSON.parse(s);
-        } catch {}
-        updateNavForUser();
-    }
-
-    function isAdmin(user) { return user && user.email === ADMIN_EMAIL; }
-
-    function updateNavForUser() {
-        const nb = document.getElementById('navButtons');
-        if (!nb) return;
-        if (currentUser) {
-            if (isAdmin(currentUser)) {
-                nb.innerHTML = `
-                    <span class="user-greeting">👑 مرحباً المدير</span>
-                    <button class="btn-nav btn-admin" onclick="openAdminModal()">لوحة الإدارة</button>
-                    <button class="btn-nav" onclick="logout()">خروج</button>`;
-            } else {
-                const name = currentUser.fullName || currentUser.email.split('@')[0];
-                nb.innerHTML = `
-                    <span class="user-greeting">مرحباً ${name}</span>
-                    <button class="btn-nav" onclick="openUserDashboard()">حسابي</button>
-                    <button class="btn-nav" onclick="logout()">خروج</button>`;
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        let currentIndex = 0;
+        
+        function updateSlider() {
+            slides.forEach(slide => slide.classList.remove('active'));
+            const visible = Array.from(slides);
+            if (visible.length > 0 && currentIndex < visible.length) {
+                visible[currentIndex].classList.add('active');
             }
-        } else {
-            nb.innerHTML = `
-                <button class="btn-nav" onclick="openAuthModal('login')">دخول</button>
-                <button class="btn-nav btn-nav-primary" onclick="openAuthModal('register')">تسجيل</button>`;
-        }
-    }
-
-    function scrollToSection(id) {
-        const el = document.getElementById(id);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }
-
-    // ════════════════════════════════════════════════════════
-    //  Auth
-    // ════════════════════════════════════════════════════════
-
-    function openAuthModal(mode) {
-        authMode = mode;
-        const reg = (mode === 'register');
-        document.getElementById('authTitle').textContent    = reg ? 'إنشاء حساب جديد' : 'تسجيل الدخول';
-        document.getElementById('authSubmitBtn').textContent = reg ? 'تسجيل' : 'دخول';
-        document.getElementById('registerFields').style.display = reg ? 'block' : 'none';
-        document.getElementById('switchText').textContent  = reg ? 'لديك حساب بالفعل؟' : 'ليس لديك حساب؟';
-        document.getElementById('switchLink').textContent  = reg ? 'تسجيل الدخول' : 'إنشاء حساب';
-        document.getElementById('authForm').reset();
-        document.getElementById('authModal').classList.add('open');
-    }
-    function closeAuthModal()  { document.getElementById('authModal').classList.remove('open'); }
-    function toggleAuthMode()  { openAuthModal(authMode === 'login' ? 'register' : 'login'); }
-
-    document.getElementById('authForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const email    = document.getElementById('email').value.trim().toLowerCase();
-        const password = document.getElementById('password').value;
-        if (!email || !password) { alert('الرجاء إدخال البريد الإلكتروني وكلمة المرور'); return; }
-
-        // تسجيل دخول المدير
-        if (authMode === 'login' && email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
-            saveSession({ id:'admin', email:ADMIN_EMAIL, fullName:'مدير النظام', phone:'', isAdmin:true });
-            closeAuthModal();
-            updateNavForUser();
-            alert('👑 مرحباً بك أيها المدير!');
-            return;
         }
 
-        const users = loadUsers();
-
-        if (authMode === 'register') {
-            const fullName = document.getElementById('fullName').value.trim();
-            const phone    = document.getElementById('phone').value.trim();
-            if (!fullName || !phone) { alert('الرجاء إدخال الاسم الكامل ورقم الهاتف'); return; }
-            if (users.find(u => u.email === email)) { alert('⚠️ هذا البريد الإلكتروني مسجل مسبقاً'); return; }
-            const user = { id:Date.now(), email, password, fullName, phone, createdAt:new Date().toISOString() };
-            users.push(user);
-            saveUsers(users);
-            saveSession({ id:user.id, email, fullName, phone });
-            closeAuthModal();
-            updateNavForUser();
-            alert('✅ تم إنشاء الحساب بنجاح!');
-        } else {
-            const user = users.find(u => u.email === email && u.password === password);
-            if (!user) { alert('❌ البريد الإلكتروني أو كلمة المرور غير صحيحة'); return; }
-            saveSession({ id:user.id, email:user.email, fullName:user.fullName, phone:user.phone });
-            closeAuthModal();
-            updateNavForUser();
-            alert('✅ تم تسجيل الدخول بنجاح!');
-        }
-    });
-
-    function logout() {
-        localStorage.removeItem('berbere_session');
-        currentUser = null;
-        updateNavForUser();
-        closeUserDashboard();
-        closeAdminModal();
-    }
-
-    // ════════════════════════════════════════════════════════
-    //  User Dashboard
-    // ════════════════════════════════════════════════════════
-
-    async function openUserDashboard() {
-        if (!currentUser || isAdmin(currentUser)) return;
-        document.getElementById('userDashboardModal').classList.add('open');
-        const content = document.getElementById('userDashboardContent');
-        content.innerHTML = '<div class="loading">⏳ جاري تحميل بياناتك...</div>';
-
-        const orders = await loadOrdersFromSheet();
-        const mine   = orders.filter(o => o.userEmail === currentUser.email);
-
-        content.innerHTML = `
-            <div class="dashboard-stats">
-                <div class="stat-card">
-                    <div class="stat-number">${mine.length}</div>
-                    <div>إجمالي طلباتك</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" style="font-size:1.05rem">${currentUser.fullName || '—'}</div>
-                    <div style="font-size:.8rem">${currentUser.email}</div>
-                </div>
-            </div>
-            <h3 style="color:var(--gold);margin:1.2rem 0 .5rem">📦 طلباتي السابقة</h3>
-            <div class="orders-list">
-                ${mine.length === 0
-                    ? '<p style="color:var(--text-muted);text-align:center;padding:2rem">لا توجد طلبات بعد</p>'
-                    : mine.slice().reverse().map(o => `
-                        <div class="order-item">
-                            <strong>${o.productName}</strong> — ${o.price}<br>
-                            <span style="color:var(--text-muted);font-size:.85rem">📏 ${o.size} &nbsp;|&nbsp; 📍 ${o.wilaya}</span><br>
-                            <span style="color:var(--gold);font-size:.78rem">📅 ${o.orderDate}</span>
-                            &nbsp;<span class="badge ${statusBadge(o.status)}">${o.status || 'جديد'}</span>
-                        </div>`).join('')
+        if (slides.length > 0) {
+            updateSlider();
+            setInterval(() => {
+                const visible = Array.from(slides);
+                if (visible.length > 0) {
+                    if (visible[currentIndex]) visible[currentIndex].classList.remove('active');
+                    currentIndex = (currentIndex + 1) % visible.length;
+                    if (visible[currentIndex]) visible[currentIndex].classList.add('active');
                 }
-            </div>`;
-    }
-    function closeUserDashboard() { document.getElementById('userDashboardModal').classList.remove('open'); }
-
-    // مساعد: CSS class لشارة الحالة
-    function statusBadge(s) {
-        const map = { 'جديد':'badge-new', 'قيد المعالجة':'badge-progress', 'تم الشحن':'badge-shipped', 'تم التوصيل':'badge-done', 'ملغى':'badge-cancelled' };
-        return map[s] || 'badge-new';
-    }
-
-    // ════════════════════════════════════════════════════════
-    //  Order Modal
-    // ════════════════════════════════════════════════════════
-
-    let currentProduct = null;
-
-    // FIX: نمرر ID فقط بدلاً من كائن JSON كامل داخل onclick
-    function openOrderModal(productId) {
-        const product = products.find(p => p.id === productId);
-        if (!product) return;
-
-        if (!currentUser) {
-            if (confirm('يجب تسجيل الدخول أولاً. هل تريد الدخول الآن؟')) openAuthModal('login');
-            return;
+            }, 5000);
         }
-        if (isAdmin(currentUser)) { alert('لا يمكن للمدير إنشاء طلبات'); return; }
 
-        currentProduct = product;
-        document.getElementById('orderForm').reset();
-        document.getElementById('modalProductName').value  = product.name;
-        document.getElementById('modalProductPrice').value = product.price;
-        document.getElementById('orderModal').classList.add('open');
-    }
-    function closeOrderModal() {
-        document.getElementById('orderModal').classList.remove('open');
-        document.getElementById('orderForm').reset();
-    }
-
-    document.getElementById('orderForm').addEventListener('submit', async function(e) {
-        e.preventDefault();
-        if (!currentUser || !currentProduct) return;
-
-        const size    = document.getElementById('orderSize').value;
-        const wilaya  = document.getElementById('orderWilaya').value;
-        const address = document.getElementById('orderAddress').value.trim();
-        const notes   = document.getElementById('orderNotes').value.trim();
-
-        if (!size || !wilaya || !address) { alert('الرجاء ملء جميع الحقول المطلوبة'); return; }
-
-        const btn = e.target.querySelector('.submit-btn');
-        btn.disabled = true;
-        btn.textContent = '⏳ جاري الإرسال...';
-
-        const orderData = {
-            orderDate:   new Date().toLocaleString('ar-DZ'),
-            userEmail:   currentUser.email,
-            userName:    currentUser.fullName || '',
-            userPhone:   currentUser.phone    || '',
-            productName: currentProduct.name,
-            price:       currentProduct.price,
-            size, wilaya, address, notes,
-            status: 'جديد'
-        };
-
-        const ok = await saveOrderToSheet(orderData);
-
-        btn.disabled = false;
-        btn.textContent = 'تأكيد الطلب';
-
-        if (ok) {
-            closeOrderModal();
-            alert(`✅ تم استلام طلبك بنجاح!\n\n📦 ${currentProduct.name}\n📏 ${size} | 📍 ${wilaya}\n\nسنتصل بك قريباً`);
-        } else {
-            alert('⚠️ خطأ في إرسال الطلب. الرجاء المحاولة مرة أخرى.');
-        }
-    });
-
-    // ════════════════════════════════════════════════════════
-    //  Products Rendering
-    // ════════════════════════════════════════════════════════
-
-    function renderProducts() {
-        const grid = document.getElementById('productsGrid');
-        if (!grid) return;
-        grid.innerHTML = products.map(p => `
-            <div class="product-card">
-                <div class="product-img-wrap">
-                    <img src="${p.img}" alt="${p.name}"
-                         onerror="this.src='https://placehold.co/300x280/1e2338/c9963a?text=BERBERE'">
-                </div>
-                <div class="product-body">
-                    <div class="product-name">${p.name}</div>
-                    <div class="product-desc">${p.desc}</div>
-                    <div class="product-price">${p.price}</div>
-                    <button class="order-btn" onclick="openOrderModal(${p.id})">اطلب الآن</button>
-                </div>
-            </div>`).join('');
-    }
-
-    // ════════════════════════════════════════════════════════
-    //  Admin Dashboard
-    // ════════════════════════════════════════════════════════
-
-    async function openAdminModal() {
-        if (!isAdmin(currentUser)) { alert('هذه الصفحة للمدير فقط'); return; }
-        document.getElementById('adminModal').classList.add('open');
-        await showAdminTab('orders');
-    }
-    function closeAdminModal() { document.getElementById('adminModal').classList.remove('open'); }
-
-    async function showAdminTab(tab) {
-        currentAdminTab = tab;
-        // FIX: استخدام data-tab بدلاً من مطابقة النص لتحديد التبويب النشط
-        document.querySelectorAll('.admin-tab').forEach(btn => {
-            btn.classList.toggle('active', btn.dataset.tab === tab);
+        const mobileBtn = document.getElementById('mobileMenuBtn');
+        const headerOuter = document.getElementById('header-outer');
+        mobileBtn.addEventListener('click', () => {
+            headerOuter.classList.toggle('open');
+            const icon = mobileBtn.querySelector('i');
+            if (headerOuter.classList.contains('open')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
         });
 
-        const content = document.getElementById('adminContent');
-        content.innerHTML = '<div class="loading">⏳ جاري التحميل...</div>';
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                headerOuter.classList.remove('open');
+                const icon = mobileBtn.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
 
-        if (tab === 'orders') {
-            const orders = await loadOrdersFromSheet();
-            content.innerHTML = `
-                <h3 style="color:var(--gold);margin-bottom:1rem">📦 الطلبات (${orders.length})</h3>
-                <div class="orders-list">
-                    ${orders.length === 0
-                        ? '<p style="color:var(--text-muted);text-align:center;padding:2rem">لا توجد طلبات بعد</p>'
-                        : orders.slice().reverse().map(o => `
-                            <div class="order-item">
-                                <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;margin-bottom:.3rem">
-                                    <strong>👤 ${o.userName || 'بدون اسم'}</strong>
-                                    <span class="badge ${statusBadge(o.status)}">${o.status || 'جديد'}</span>
-                                </div>
-                                <div style="font-size:.85rem;color:var(--text-muted)">📧 ${o.userEmail} &nbsp;·&nbsp; 📞 ${o.userPhone || '—'}</div>
-                                <div style="margin-top:.4rem">📦 <strong>${o.productName}</strong> — ${o.price}</div>
-                                <div style="font-size:.85rem;color:var(--text-muted)">📏 ${o.size} &nbsp;|&nbsp; 📍 ${o.wilaya}</div>
-                                <div style="font-size:.85rem;color:var(--text-muted)">🏠 ${o.address}</div>
-                                ${o.notes ? `<div style="font-size:.8rem;color:var(--text-muted)">📝 ${o.notes}</div>` : ''}
-                                <div style="font-size:.75rem;color:var(--gold);margin-top:.3rem">📅 ${o.orderDate}</div>
-                            </div>`).join('')
-                    }
-                </div>`;
-
-        } else if (tab === 'users') {
-            const users  = loadUsers();
-            const orders = await loadOrdersFromSheet();
-            content.innerHTML = `
-                <h3 style="color:var(--gold);margin-bottom:1rem">👥 المستخدمون المسجلون (${users.length})</h3>
-                <div class="orders-list">
-                    ${users.length === 0
-                        ? '<p style="color:var(--text-muted);text-align:center;padding:2rem">لا يوجد مستخدمون بعد</p>'
-                        : users.map(u => {
-                            const cnt = orders.filter(o => o.userEmail === u.email).length;
-                            return `
-                                <div class="order-item" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem">
-                                    <div>
-                                        <strong>${u.fullName || 'بدون اسم'}</strong><br>
-                                        <span style="font-size:.85rem;color:var(--text-muted)">📧 ${u.email}</span><br>
-                                        <span style="font-size:.85rem;color:var(--text-muted)">📞 ${u.phone || '—'}</span>
-                                    </div>
-                                    <div style="display:flex;align-items:center;gap:.5rem">
-                                        <span class="badge">${cnt} طلب</span>
-                                        <button class="btn-small btn-danger" onclick="deleteUser('${u.email}')">🗑 حذف</button>
-                                    </div>
-                                </div>`;
-                        }).join('')
-                    }
-                </div>`;
-
-        } else if (tab === 'stats') {
-            const orders = await loadOrdersFromSheet();
-            const users  = loadUsers();
-            const total  = orders.reduce((s, o) => s + (parseInt((o.price || '').replace(/\D/g, '')) || 0), 0);
-            const byStat = orders.reduce((a, o) => { const k = o.status || 'جديد'; a[k] = (a[k] || 0) + 1; return a; }, {});
-
-            content.innerHTML = `
-                <div class="dashboard-stats">
-                    <div class="stat-card"><div class="stat-number">${users.length}</div><div>مستخدمون</div></div>
-                    <div class="stat-card"><div class="stat-number">${orders.length}</div><div>طلبات</div></div>
-                    <div class="stat-card"><div class="stat-number">${total.toLocaleString('ar-DZ')}</div><div>دج مبيعات</div></div>
-                </div>
-                <h3 style="color:var(--gold);margin:1.5rem 0 1rem">📊 توزيع الطلبات حسب الحالة</h3>
-                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:.8rem">
-                    ${Object.entries(byStat).map(([k, v]) => `
-                        <div class="stat-card" style="padding:1rem">
-                            <div class="stat-number" style="font-size:1.6rem">${v}</div>
-                            <span class="badge ${statusBadge(k)}">${k}</span>
-                        </div>`).join('')}
-                </div>`;
-        }
-    }
-
-    // FIX: async/await صحيح — كان مفقوداً قبل، يُسبب عدم تحديث القائمة بعد الحذف
-    async function deleteUser(email) {
-        if (!confirm('هل أنت متأكد من حذف هذا المستخدم؟')) return;
-        saveUsers(loadUsers().filter(u => u.email !== email));
-        await showAdminTab(currentAdminTab);
-    }
-
-    // ════════════════════════════════════════════════════════
-    //  Init
-    // ════════════════════════════════════════════════════════
-    loadSession();
-    renderProducts();
-</script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
