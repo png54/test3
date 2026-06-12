@@ -133,7 +133,6 @@
             height: 100px;
             object-fit: cover;
         }
-        /* صورة 4 أضعاف في السايدبار - تظهر كاملة */
         .sidebar-ref-item.super-wide {
             grid-column: span 2;
         }
@@ -143,7 +142,7 @@
             background-color: #1a1a1a;
         }
 
-        /* ========== SOCIAL LINKS SIDEBAR (DESKTOP) - ENHANCED ========== */
+        /* ========== SOCIAL LINKS SIDEBAR (DESKTOP) ========== */
         .social-links-side {
             text-align: center;
             margin-top: auto;
@@ -313,7 +312,7 @@
             border-color: #e6b422;
         }
 
-        /* ========== MOBILE SOCIAL SECTION (UNDER HERO) - ENHANCED ========== */
+        /* ========== MOBILE SOCIAL SECTION ========== */
         .mobile-social-section {
             display: none;
             text-align: center;
@@ -456,14 +455,13 @@
             font-size: 0.85rem;
         }
 
-        /* SERVICES GRID - Desktop: 2 colonnes (2x2), Mobile: 1 colonne */
+        /* ========== SERVICES GRID WITH ENHANCED ICONS ========== */
         .services-grid {
             display: grid;
             gap: 30px;
             margin-top: 50px;
         }
 
-        /* Pour les écrans larges (ordinateur) : 2 colonnes */
         @media (min-width: 993px) {
             .services-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -473,7 +471,6 @@
             }
         }
 
-        /* Pour les tablettes et mobiles : 1 colonne */
         @media (max-width: 992px) {
             .services-grid {
                 grid-template-columns: 1fr;
@@ -482,29 +479,64 @@
 
         .service-card {
             background: white;
-            padding: 40px 25px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
+            padding: 45px 25px 40px;
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             text-align: center;
-            border: 1px solid #eee;
+            border: 1px solid rgba(230,180,34,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #e6b422, #ffd966, #e6b422);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
         }
 
         .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            border-color: #e6b422;
+            transform: translateY(-12px);
+            box-shadow: 0 25px 45px rgba(230,180,34,0.15);
+            border-color: rgba(230,180,34,0.3);
         }
 
+        /* Enhanced Icon Styling */
         .service-card i {
-            font-size: 3rem;
-            color: #e6b422;
-            margin-bottom: 20px;
+            font-size: 3.8rem;
+            margin-bottom: 25px;
+            display: inline-block;
+            background: linear-gradient(135deg, #e6b422 0%, #ffd966 50%, #e6b422 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 15px rgba(230,180,34,0.3);
+        }
+
+        .service-card:hover i {
+            transform: scale(1.1) rotate(3deg);
+            background: linear-gradient(135deg, #ffd966 0%, #e6b422 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
         }
 
         .service-card h3 {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #1a1a1a;
         }
 
         .service-card p {
@@ -525,7 +557,7 @@
             border-radius: 60px;
         }
 
-        /* ========== REFERENCE GALLERY (PAGE PRINCIPALE) ========== */
+        /* ========== REFERENCE GALLERY ========== */
         .ref-gallery {
             max-width: 1200px;
             margin: 0 auto;
@@ -563,7 +595,6 @@
             height: 300px;
             object-fit: cover;
         }
-        /* صورة 4 أضعاف في الصفحة الرئيسية - تظهر كاملة بدون قطع */
         .ref-item.super-wide {
             grid-column: span 2;
         }
@@ -652,6 +683,9 @@
                 font-size: 1rem;
                 padding: 15px;
             }
+            .service-card i {
+                font-size: 3rem;
+            }
         }
     </style>
 </head>
@@ -673,7 +707,6 @@
                 <li><a href="#reference">Référence</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <!-- SECTION RÉFÉRENCE DANS LA BARRE LATÉRALE (SOUS CONTACT) -->
             <div class="sidebar-reference">
                 <h4>RÉFÉRENCE</h4>
                 <div class="sidebar-ref-grid">
@@ -684,7 +717,6 @@
                     <div class="sidebar-ref-item"><img src="https://f.top4top.io/p_3814bsjgd5.jpg" alt="ref5"></div>
                     <div class="sidebar-ref-item"><img src="https://g.top4top.io/p_38141flok6.jpg" alt="ref6"></div>
                     <div class="sidebar-ref-item wide"><img src="https://h.top4top.io/p_3814siazc7.jpg" alt="ref7"></div>
-                    <!-- الصورة الجديدة - تظهر كاملة -->
                     <div class="sidebar-ref-item super-wide"><img src="https://e.top4top.io/p_38147jamf1.jpg" alt="ref8 large"></div>
                 </div>
             </div>
@@ -724,7 +756,6 @@
             </div>
         </section>
 
-        <!-- أيقونات التواصل الاجتماعي للهواتف - مطورة وفخمة -->
         <div class="mobile-social-section">
             <h3>SUIVEZ-MOI</h3>
             <div class="mobile-social-icons">
@@ -771,31 +802,34 @@
                     </div>
                 </div>
                 <div class="services-grid">
+                    <!-- Service 1: ÉTUDE -->
                     <div class="service-card">
-                        <i class="fas fa-tv"></i>
-                        <h3>Étude de projets TV</h3>
+                        <i class="fas fa-chart-line"></i>
+                        <h3>ÉTUDE</h3>
                         <p>Analyse de faisabilité, étude de marché et audit stratégique pour les projets télévisuels et médiatiques.</p>
                     </div>
+                    <!-- Service 2: CONCEPTION -->
                     <div class="service-card">
-                        <i class="fas fa-pen-ruler"></i>
-                        <h3>Conception</h3>
+                        <i class="fas fa-pen-nib"></i>
+                        <h3>CONCEPTION</h3>
                         <p>Création de concepts innovants, design de formats TV et développement de stratégies éditoriales.</p>
                     </div>
+                    <!-- Service 3: GESTION -->
                     <div class="service-card">
                         <i class="fas fa-sliders-h"></i>
-                        <h3>Gestion</h3>
+                        <h3>GESTION</h3>
                         <p>Coordination technique, budgétaire et humaine. Suivi de production et gestion des équipes médias.</p>
                     </div>
+                    <!-- Service 4: LANCEMENT -->
                     <div class="service-card">
                         <i class="fas fa-rocket"></i>
-                        <h3>Lancement clé en main</h3>
+                        <h3>LANCEMENT</h3>
                         <p>Déploiement complet, stratégie de lancement, promotion, diffusion et suivi post-lancement.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ========== SECTION RÉFÉRENCE DANS LE CORPS DE LA PAGE ========== -->
         <section class="section section-white" id="reference">
             <div class="container-custom">
                 <div style="text-align: center;">
@@ -810,7 +844,6 @@
                         <div class="ref-item"><img src="https://f.top4top.io/p_3814bsjgd5.jpg" alt="Réf 5"></div>
                         <div class="ref-item"><img src="https://g.top4top.io/p_38141flok6.jpg" alt="Réf 6"></div>
                         <div class="ref-item wide"><img src="https://h.top4top.io/p_3814siazc7.jpg" alt="Réf 7 - Large"></div>
-                        <!-- الصورة الجديدة - تظهر كاملة بدون قطع -->
                         <div class="ref-item super-wide"><img src="https://e.top4top.io/p_38147jamf1.jpg" alt="Réf 8 - Super Large"></div>
                     </div>
                 </div>
