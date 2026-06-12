@@ -499,45 +499,6 @@
             margin-bottom: 20px;
         }
 
-        /* Style pour les icônes composites personnalisées */
-        .composite-icon {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-        .composite-icon .top-icon {
-            font-size: 1.8rem;
-            color: #e6b422;
-            margin-bottom: 5px;
-        }
-        .composite-icon .bottom-icons {
-            display: flex;
-            gap: 8px;
-            justify-content: center;
-        }
-        .composite-icon .bottom-icons i {
-            font-size: 1.8rem;
-            color: #e6b422;
-            margin: 0;
-        }
-        .management-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-            margin-bottom: 20px;
-        }
-        .management-icon i {
-            font-size: 2rem;
-            color: #e6b422;
-            margin: 0;
-        }
-        .management-icon i.fa-chart-line {
-            font-size: 1.6rem;
-        }
-
         .service-card h3 {
             font-size: 1.3rem;
             margin-bottom: 15px;
@@ -794,7 +755,7 @@
             </div>
         </section>
 
-        <!-- ========== SECTION SERVICES AVEC LES NOUVELLES ICÔNES ========== -->
+        <!-- ========== SECTION SERVICES AVEC LES NOUVELLES ICÔNES SIMPLES ========== -->
         <section class="section section-dark" id="services">
             <div class="container-custom">
                 <div style="text-align: center;">
@@ -804,40 +765,28 @@
                     </div>
                 </div>
                 <div class="services-grid">
-                    <!-- 1. Étude de projets TV - Icône TV (gardée identique) -->
+                    <!-- 1. Étude de projets TV - Icône TV -->
                     <div class="service-card">
                         <i class="fas fa-tv"></i>
                         <h3>Étude de projets TV</h3>
                         <p>Analyse de faisabilité, étude de marché et audit stratégique pour les projets télévisuels et médiatiques.</p>
                     </div>
 
-                    <!-- 2. Conception - Icône: Ampoule + (Stylo + Document) -->
+                    <!-- 2. Conception - Icône: stylo + règle (fa-pen-ruler) -->
                     <div class="service-card">
-                        <div class="composite-icon">
-                            <div class="top-icon">
-                                <i class="fas fa-lightbulb"></i>
-                            </div>
-                            <div class="bottom-icons">
-                                <i class="fas fa-pen"></i>
-                                <i class="fas fa-file-alt"></i>
-                            </div>
-                        </div>
+                        <i class="fas fa-pen-ruler"></i>
                         <h3>Conception</h3>
                         <p>Création de concepts innovants, design de formats TV et développement de stratégies éditoriales.</p>
                     </div>
 
-                    <!-- 3. Gestion - Icône: Engrenage + Flèches circulaires + Graphique -->
+                    <!-- 3. Gestion - Icône: engrenage (fa-cog) -->
                     <div class="service-card">
-                        <div class="management-icon">
-                            <i class="fas fa-cog"></i>
-                            <i class="fas fa-sync-alt"></i>
-                            <i class="fas fa-chart-line"></i>
-                        </div>
+                        <i class="fas fa-cog"></i>
                         <h3>Gestion</h3>
                         <p>Coordination technique, budgétaire et humaine. Suivi de production et gestion des équipes médias.</p>
                     </div>
 
-                    <!-- 4. Lancement clé en main - Icône fusée (gardée identique) -->
+                    <!-- 4. Lancement clé en main - Icône: fusée (fa-rocket) -->
                     <div class="service-card">
                         <i class="fas fa-rocket"></i>
                         <h3>Lancement clé en main</h3>
