@@ -142,7 +142,7 @@
             background-color: #1a1a1a;
         }
 
-        /* ========== SOCIAL LINKS SIDEBAR (DESKTOP) ========== */
+        /* ========== SOCIAL LINKS SIDEBAR (DESKTOP) - ENHANCED ========== */
         .social-links-side {
             text-align: center;
             margin-top: auto;
@@ -312,7 +312,7 @@
             border-color: #e6b422;
         }
 
-        /* ========== MOBILE SOCIAL SECTION ========== */
+        /* ========== MOBILE SOCIAL SECTION (UNDER HERO) - ENHANCED ========== */
         .mobile-social-section {
             display: none;
             text-align: center;
@@ -455,7 +455,7 @@
             font-size: 0.85rem;
         }
 
-        /* ========== SERVICES GRID WITH ENHANCED ICONS ========== */
+        /* SERVICES GRID - Desktop: 2 colonnes (2x2), Mobile: 1 colonne */
         .services-grid {
             display: grid;
             gap: 30px;
@@ -479,64 +479,68 @@
 
         .service-card {
             background: white;
-            padding: 45px 25px 40px;
-            border-radius: 24px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            padding: 40px 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
             text-align: center;
-            border: 1px solid rgba(230,180,34,0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, #e6b422, #ffd966, #e6b422);
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
-        }
-
-        .service-card:hover::before {
-            transform: scaleX(1);
+            border: 1px solid #eee;
         }
 
         .service-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 25px 45px rgba(230,180,34,0.15);
-            border-color: rgba(230,180,34,0.3);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-color: #e6b422;
         }
 
-        /* Enhanced Icon Styling */
         .service-card i {
-            font-size: 3.8rem;
-            margin-bottom: 25px;
-            display: inline-block;
-            background: linear-gradient(135deg, #e6b422 0%, #ffd966 50%, #e6b422 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            transition: all 0.3s ease;
-            text-shadow: 0 0 15px rgba(230,180,34,0.3);
+            font-size: 3rem;
+            color: #e6b422;
+            margin-bottom: 20px;
         }
 
-        .service-card:hover i {
-            transform: scale(1.1) rotate(3deg);
-            background: linear-gradient(135deg, #ffd966 0%, #e6b422 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
+        /* Style pour les icônes composites personnalisées */
+        .composite-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .composite-icon .top-icon {
+            font-size: 1.8rem;
+            color: #e6b422;
+            margin-bottom: 5px;
+        }
+        .composite-icon .bottom-icons {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+        }
+        .composite-icon .bottom-icons i {
+            font-size: 1.8rem;
+            color: #e6b422;
+            margin: 0;
+        }
+        .management-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            margin-bottom: 20px;
+        }
+        .management-icon i {
+            font-size: 2rem;
+            color: #e6b422;
+            margin: 0;
+        }
+        .management-icon i.fa-chart-line {
+            font-size: 1.6rem;
         }
 
         .service-card h3 {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             margin-bottom: 15px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            color: #1a1a1a;
         }
 
         .service-card p {
@@ -557,7 +561,7 @@
             border-radius: 60px;
         }
 
-        /* ========== REFERENCE GALLERY ========== */
+        /* ========== REFERENCE GALLERY (PAGE PRINCIPALE) ========== */
         .ref-gallery {
             max-width: 1200px;
             margin: 0 auto;
@@ -683,9 +687,6 @@
                 font-size: 1rem;
                 padding: 15px;
             }
-            .service-card i {
-                font-size: 3rem;
-            }
         }
     </style>
 </head>
@@ -793,6 +794,7 @@
             </div>
         </section>
 
+        <!-- ========== SECTION SERVICES AVEC LES NOUVELLES ICÔNES ========== -->
         <section class="section section-dark" id="services">
             <div class="container-custom">
                 <div style="text-align: center;">
@@ -802,34 +804,50 @@
                     </div>
                 </div>
                 <div class="services-grid">
-                    <!-- Service 1: ÉTUDE -->
+                    <!-- 1. Étude de projets TV - Icône TV (gardée identique) -->
                     <div class="service-card">
-                        <i class="fas fa-chart-line"></i>
-                        <h3>ÉTUDE</h3>
+                        <i class="fas fa-tv"></i>
+                        <h3>Étude de projets TV</h3>
                         <p>Analyse de faisabilité, étude de marché et audit stratégique pour les projets télévisuels et médiatiques.</p>
                     </div>
-                    <!-- Service 2: CONCEPTION -->
+
+                    <!-- 2. Conception - Icône: Ampoule + (Stylo + Document) -->
                     <div class="service-card">
-                        <i class="fas fa-pen-nib"></i>
-                        <h3>CONCEPTION</h3>
+                        <div class="composite-icon">
+                            <div class="top-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div class="bottom-icons">
+                                <i class="fas fa-pen"></i>
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                        </div>
+                        <h3>Conception</h3>
                         <p>Création de concepts innovants, design de formats TV et développement de stratégies éditoriales.</p>
                     </div>
-                    <!-- Service 3: GESTION -->
+
+                    <!-- 3. Gestion - Icône: Engrenage + Flèches circulaires + Graphique -->
                     <div class="service-card">
-                        <i class="fas fa-sliders-h"></i>
-                        <h3>GESTION</h3>
+                        <div class="management-icon">
+                            <i class="fas fa-cog"></i>
+                            <i class="fas fa-sync-alt"></i>
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Gestion</h3>
                         <p>Coordination technique, budgétaire et humaine. Suivi de production et gestion des équipes médias.</p>
                     </div>
-                    <!-- Service 4: LANCEMENT -->
+
+                    <!-- 4. Lancement clé en main - Icône fusée (gardée identique) -->
                     <div class="service-card">
                         <i class="fas fa-rocket"></i>
-                        <h3>LANCEMENT</h3>
+                        <h3>Lancement clé en main</h3>
                         <p>Déploiement complet, stratégie de lancement, promotion, diffusion et suivi post-lancement.</p>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- ========== SECTION RÉFÉRENCE DANS LE CORPS DE LA PAGE ========== -->
         <section class="section section-white" id="reference">
             <div class="container-custom">
                 <div style="text-align: center;">
